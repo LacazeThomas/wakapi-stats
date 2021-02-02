@@ -1,12 +1,10 @@
 version: '2.1'
 services:
 
- toto:
-  image: toto:latest
-  container_name: toto
+ wakapistats:
+  image: thomaslacaze/wakapi-stats:1.0.0
+  container_name: wakapistats
   restart: always
-  labels:
-    - traefik.enable=false
   environment: 
     - ENVIRONMENT=PRODUCTION
     - API_URL=${API_URL}
