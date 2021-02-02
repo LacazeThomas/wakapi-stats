@@ -1,0 +1,117 @@
+# github.com/blend/go-sdk v1.20210201.1
+## explicit
+# github.com/caarlos0/env v3.5.0+incompatible
+## explicit
+github.com/caarlos0/env
+# github.com/davecgh/go-spew v1.1.1
+github.com/davecgh/go-spew/spew
+# github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
+## explicit
+github.com/golang/freetype/raster
+github.com/golang/freetype/truetype
+# github.com/golang/protobuf v1.4.3
+github.com/golang/protobuf/proto
+# github.com/google/go-cmp v0.5.4
+## explicit
+# github.com/google/go-github v17.0.0+incompatible
+## explicit
+github.com/google/go-github/github
+# github.com/google/go-querystring v1.0.0
+## explicit
+github.com/google/go-querystring/query
+# github.com/kr/text v0.2.0
+## explicit
+# github.com/pkg/errors v0.9.1
+## explicit
+github.com/pkg/errors
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/stretchr/testify v1.7.0
+## explicit
+github.com/stretchr/testify/assert
+# github.com/wcharczuk/go-chart v2.0.1+incompatible
+## explicit
+github.com/wcharczuk/go-chart
+github.com/wcharczuk/go-chart/drawing
+github.com/wcharczuk/go-chart/matrix
+github.com/wcharczuk/go-chart/roboto
+github.com/wcharczuk/go-chart/seq
+github.com/wcharczuk/go-chart/util
+# go.uber.org/atomic v1.7.0
+go.uber.org/atomic
+# go.uber.org/multierr v1.6.0
+## explicit
+go.uber.org/multierr
+# go.uber.org/zap v1.16.0
+## explicit
+go.uber.org/zap
+go.uber.org/zap/buffer
+go.uber.org/zap/internal/bufferpool
+go.uber.org/zap/internal/color
+go.uber.org/zap/internal/exit
+go.uber.org/zap/zapcore
+# golang.org/x/image v0.0.0-20201208152932-35266b937fa6
+## explicit
+golang.org/x/image/draw
+golang.org/x/image/font
+golang.org/x/image/math/f64
+golang.org/x/image/math/fixed
+# golang.org/x/lint v0.0.0-20201208152925-83fdc39ff7b5
+## explicit
+# golang.org/x/mod v0.4.1
+## explicit
+# golang.org/x/net v0.0.0-20210119194325-5f4716e94777
+## explicit
+golang.org/x/net/context
+golang.org/x/net/context/ctxhttp
+# golang.org/x/oauth2 v0.0.0-20210201163806-010130855d6c
+## explicit
+golang.org/x/oauth2
+golang.org/x/oauth2/internal
+# golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c
+## explicit
+# google.golang.org/appengine v1.6.7
+## explicit
+google.golang.org/appengine/internal
+google.golang.org/appengine/internal/base
+google.golang.org/appengine/internal/datastore
+google.golang.org/appengine/internal/log
+google.golang.org/appengine/internal/remote_api
+google.golang.org/appengine/internal/urlfetch
+google.golang.org/appengine/urlfetch
+# google.golang.org/protobuf v1.25.0
+google.golang.org/protobuf/encoding/prototext
+google.golang.org/protobuf/encoding/protowire
+google.golang.org/protobuf/internal/descfmt
+google.golang.org/protobuf/internal/descopts
+google.golang.org/protobuf/internal/detrand
+google.golang.org/protobuf/internal/encoding/defval
+google.golang.org/protobuf/internal/encoding/messageset
+google.golang.org/protobuf/internal/encoding/tag
+google.golang.org/protobuf/internal/encoding/text
+google.golang.org/protobuf/internal/errors
+google.golang.org/protobuf/internal/fieldsort
+google.golang.org/protobuf/internal/filedesc
+google.golang.org/protobuf/internal/filetype
+google.golang.org/protobuf/internal/flags
+google.golang.org/protobuf/internal/genid
+google.golang.org/protobuf/internal/impl
+google.golang.org/protobuf/internal/mapsort
+google.golang.org/protobuf/internal/pragma
+google.golang.org/protobuf/internal/set
+google.golang.org/protobuf/internal/strs
+google.golang.org/protobuf/internal/version
+google.golang.org/protobuf/proto
+google.golang.org/protobuf/reflect/protoreflect
+google.golang.org/protobuf/reflect/protoregistry
+google.golang.org/protobuf/runtime/protoiface
+google.golang.org/protobuf/runtime/protoimpl
+# gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
+## explicit
+# gopkg.in/yaml.v2 v2.4.0
+## explicit
+# gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+## explicit
+gopkg.in/yaml.v3
+# honnef.co/go/tools v0.1.1
+## explicit
