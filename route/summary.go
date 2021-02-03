@@ -39,9 +39,7 @@ func getToStruct(APIUrl string, APIKEY string, target interface{}) (err error) {
 	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
 
-	bytes := []byte(body)
-
-	err = json.Unmarshal(bytes, &target)
+	err = json.Unmarshal(body, &target)
 	if err != nil {
 		return errors.Wrap(err, "error unmarshaling body to target struct")
 	}
