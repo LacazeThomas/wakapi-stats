@@ -26,11 +26,11 @@ Generator images from Wakapi
   <tr>
     <td align="center">
       <img alt="" width="380" src="https://raw.githubusercontent.com/LacazeThomas/LacazeThoma/main/languages.png">
-      <img width="900" height="1" alt="">
+      <img width="800" height="1" alt="">
     </td>
     <td align="center">
       <img alt="" width="380" src="https://raw.githubusercontent.com/LacazeThomas/LacazeThoma/main/editors.png">
-      <img width="900" height="1" alt="">
+      <img width="800" height="1" alt="">
     </td>
   </tr>
 </table>
