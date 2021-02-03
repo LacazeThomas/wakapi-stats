@@ -139,6 +139,10 @@ go build -o wakapi-stats && ./wakapi-stats
 - [Ferdinand Mütsch](https://github.com/muety) for amazing [wakapi](https://github.com/muety/wakapi)
 - [Will Charczuk](https://github.com/wcharczuk) for the awesome [go-chart](https://github.com/wcharczuk/go-chart)
 
+
+## Dockerfile
+
+<a href="https://github.com/LacazeThomas/wakapi-stats/blob/main/Dockerfile">Dockerfile</a>
 ## License
 
 <a href="https://github.com/LacazeThomas/wakapi-stats/blob/main/LICENSE">MIT</a>
