@@ -45,10 +45,4 @@ steps:
     branch:
     - master
     - main
-
-- name: coverage
-  image: plugins/codecov
-  settings:
-    token:
-      from_secret: codecov_token
 ###
