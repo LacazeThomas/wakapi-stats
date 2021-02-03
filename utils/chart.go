@@ -36,7 +36,6 @@ func createPieFromChartValues(chartItems []chart.Value, imageName string) (err e
 	chart.DefaultCanvasColor = chart.ColorTransparent
 
 	graph := chart.PieChart{
-		//Title:  titleName,
 		Width:  512,
 		Height: 512,
 		DPI:    float64(75),
@@ -46,10 +45,14 @@ func createPieFromChartValues(chartItems []chart.Value, imageName string) (err e
 
 	f, err := os.Create(imageName)
 	if err != nil {
-		return errors.Wrap(err, "error creating image from graph")
+		return errors.Wrap(err, "error creating image")
 	}
 	defer f.Close()
-	graph.Render(chart.PNG, f)
+
+	err = graph.Render(chart.PNG, f)
+	if err != nil {
+		return errors.Wrap(err, "error rendering image from graph")
+	}
 
 	return
 }
