@@ -4,15 +4,14 @@ services:
  wakapistats:
   image: thomaslacaze/wakapi-stats:1.0.0
   container_name: wakapistats
-  restart: always
   environment: 
-    - ENVIRONMENT=PRODUCTION
-    - API_URL=${API_URL}
-    - API_KEY=${API_KEY}
-    - AccessToken=${AccessToken}
-    - Branch=main
-    - Message=Update images from wakapi-stats
-    - CommitName=Thomas LACAZE
-    - CommitEmail=contact@thomaslacaze.fr
-    - UserName=lacazethomas
-    - RepoName=lacazethomas
+    - PLUGIN_ENVIRONMENT=PRODUCTION
+    - PLUGIN_API_URL=${API_URL}
+    - PLUGIN_API_KEY=${API_KEY}
+    - PLUGIN_ACCESSTOKEN=${AccessToken}
+    - PLUGIN_BRANCH=main
+    - PLUGIN_MESSAGE=Update images from wakapi-stats
+    - PLUGIN_COMMITNAME=Thomas LACAZE
+    - PLUGIN_COMMITEMAIL=contact@thomaslacaze.fr
+    - PLUGIN_USERNAME=lacazethomas
+    - PLUGIN_REPO=lacazethomas

@@ -9,19 +9,19 @@ const (
 )
 
 type GitConfig struct {
-	AccessToken string `env:"AccessToken"`
-	Branch      string `env:"Branch"`
-	Message     string `env:"Message"`
-	CommitName  string `env:"CommitName"`
-	CommitEmail string `env:"CommitEmail"`
-	UserName    string `env:"UserName"`
-	RepoName    string `env:"RepoName"`
+	AccessToken string `env:"PLUGIN_ACCESSTOKEN"`
+	Branch      string `env:"PLUGIN_BRANCH"`
+	Message     string `env:"PLUGIN_MESSAGE"`
+	CommitName  string `env:"PLUGIN_COMMITNAME"`
+	CommitEmail string `env:"PLUGIN_COMMITEMAIL"`
+	UserName    string `env:"PLUGIN_USERNAME"`
+	RepoName    string `env:"PLUGIN_REPO"`
 }
 
 type AppConfig struct {
-	APIKey string `env:"API_KEY"`
-	APIURL string `env:"API_URL"`
-	Env    string `default:"dev" env:"ENVIRONMENT"`
+	APIKey string `env:"PLUGIN_API_KEY"`
+	APIURL string `env:"PLUGIN_API_URL"`
+	Env    string `default:"dev" env:"PLUGIN_ENVIRONMENT"`
 }
 
 func (c *AppConfig) IsDev() bool {
