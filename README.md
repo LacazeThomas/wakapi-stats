@@ -61,16 +61,16 @@ Generator images from Wakapi
 # Run the container
 $ docker run -d \
   -p 3000:3000 \
-  -e "ENVIRONMENT=prod" \
-  -e "API_URL=FILL_ME" \
-  -e "API_KEY=FILL_ME" \
-  -e "AccessToken=FILL_ME" \
-  -e "Branch=FILL_ME" \
-  -e "Message=FILL_ME" \
-  -e "CommitName=FILL_ME" \
-  -e "CommitEmail=FILL_ME" \
-  -e "UserName=FILL_ME" \
-  -e "RepoName=FILL_ME" \
+  -e "PLUGIN_ENVIRONMENT=prod" \
+  -e "PLUGIN_API_URL=FILL_ME" \
+  -e "PLUGIN_API_KEY=FILL_ME" \
+  -e "PLUGIN_ACCESSTOKEN=FILL_ME" \
+  -e "PLUGIN_BRANCH=FILL_ME" \
+  -e "PLUGIN_MESSAGE=FILL_ME" \
+  -e "PLUGIN_COMMITNAME=FILL_ME" \
+  -e "PLUGIN_COMMITEMAIL=FILL_ME" \
+  -e "PLUGIN_USERNAME=FILL_ME" \
+  -e "PLUGIN_REPO=FILL_ME" \
   --name wakapi-stats thomaslacaze/wakapi-stats:1.0.0
 ```
 
