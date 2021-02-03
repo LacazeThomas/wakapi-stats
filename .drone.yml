@@ -14,7 +14,7 @@ steps:
   commands:
     - go test ./... 
 
-- name: publish
+- name: publish to Dockerhub image
   image: plugins/docker
   settings:
     auto_tag: true
@@ -27,8 +27,11 @@ steps:
     event:
     - push
     - tag
+    branch:
+    - master
+    - main
 
-- name: publish readme
+- name: publish readme to Dockerhub
   image: thomaslacaze/dockerhub-description:2.4.1
   pull: always
   settings:
