@@ -16,17 +16,17 @@ func TestIsDev(t *testing.T) {
 }
 
 func TestLoad(t *testing.T) {
-	os.Setenv("PLUGIN_API_URL", "http://localhost")
-	os.Setenv("PLUGIN_API_KEY", "fdsg-sfdg-dsfg-sdfg")
-	os.Setenv("PLUGIN_ENVIRONMENT", "dev")
+	_ = os.Setenv("PLUGIN_API_URL", "http://localhost")
+	_ = os.Setenv("PLUGIN_API_KEY", "fdsg-sfdg-dsfg-sdfg")
+	_ = os.Setenv("PLUGIN_ENVIRONMENT", "dev")
 
-	os.Setenv("PLUGIN_ACCESSTOKEN", "dfdjgfdjfgdjfddjgf")
-	os.Setenv("PLUGIN_BRANCH", "main")
-	os.Setenv("PLUGIN_MESSAGE", "Update images from wakapi-stats")
-	os.Setenv("PLUGIN_COMMITNAME", "LACAZE Thomas")
-	os.Setenv("PLUGIN_COMMITEMAIL", "contact@thomaslacaze.fr")
-	os.Setenv("PLUGIN_USERNAME", "lacazethomas")
-	os.Setenv("PLUGIN_REPO", "testname")
+	_ = os.Setenv("PLUGIN_ACCESSTOKEN", "dfdjgfdjfgdjfddjgf")
+	_ = os.Setenv("PLUGIN_BRANCH", "main")
+	_ = os.Setenv("PLUGIN_MESSAGE", "Update images from wakapi-stats")
+	_ = os.Setenv("PLUGIN_COMMITNAME", "LACAZE Thomas")
+	_ = os.Setenv("PLUGIN_COMMITEMAIL", "contact@thomaslacaze.fr")
+	_ = os.Setenv("PLUGIN_USERNAME", "lacazethomas")
+	_ = os.Setenv("PLUGIN_REPO", "testname")
 
 	appConfig, gitConfig := Load()
 

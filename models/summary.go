@@ -1,9 +1,6 @@
 package models
 
-const (
-	maxLength = 20
-)
-
+//Summary struct contains API response
 type Summary struct {
 	UserID           string         `json:"user_id"`
 	From             struct{}       `json:"from"`
@@ -15,11 +12,13 @@ type Summary struct {
 	Machines         []SummaryItems `json:"machines"`
 }
 
+//SummaryItems struct contains item details
 type SummaryItems struct {
 	Key   string `json:"key"`
 	Total int    `json:"total"`
 }
 
+//ItemsSorter using go sort
 type ItemsSorter []SummaryItems
 
 func (a ItemsSorter) Len() int           { return len(a) }

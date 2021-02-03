@@ -56,6 +56,7 @@ func getImageBytes(filename string) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
+//PublishToGithub with git config and file to push. It will automatically create or update file
 func PublishToGithub(gitProfile config.GitConfig, filename string) (err error) {
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: gitProfile.AccessToken},
