@@ -1,10 +1,27 @@
 <h1 align="center">
-  Wakapi-Stats
+📊 Wakapi-Stats
 </h1>
 
 <h2 align="center">
 Generator images from Wakapi
 </h2>
+
+<p align="center">
+
+  <img src="https://badges.fw-web.space/github/v/release/lacazethomas/wakapi-stats">
+
+  <a href="https://goreportcard.com/report/github.com/LacazeThomas/wakapi-stats">
+    <img src="https://goreportcard.com/badge/github.com/LacazeThomas/wakapi-stats">
+  </a>
+  
+  <img src="https://badges.fw-web.space/github/languages/code-size/lacazethomas/wakapi-stats">
+
+  <img src="https://badges.fw-web.space/github/license/LacazeThomas/wakapi-stats">
+  
+  <a href="https://drone.thomaslacaze.fr/LacazeThomas/wakapi-stats">
+    <img src="https://drone.thomaslacaze.fr/api/badges/LacazeThomas/wakapi-stats/status.svg">
+  </a>
+</p>
 
 <p align="center">
     <a href="https://github.com/LacazeThomas/wakapi-stats/issues/new/choose">Report Bug</a>
@@ -34,8 +51,6 @@ Generator images from Wakapi
     </td>
   </tr>
 </table>
-
-[![Build Status](https://drone.thomaslacaze.fr/api/badges/LacazeThomas/wakapi-stats/status.svg)](https://drone.thomaslacaze.fr/LacazeThomas/wakapi-stats)
 
 ## 🧐 Features
 
