@@ -1,10 +1,10 @@
 <h1 align="center">
   Wakapi-Stats
 </h1>
+
 <h2 align="center">
 Generator images from Wakapi
 </h2>
-
 
 <p align="center">
     <a href="https://github.com/LacazeThomas/wakapi-stats/issues/new/choose">Report Bug</a>
@@ -35,6 +35,7 @@ Generator images from Wakapi
   </tr>
 </table>
 
+[![Build Status](https://drone.thomaslacaze.fr/api/badges/LacazeThomas/wakapi-stats/status.svg)](https://drone.thomaslacaze.fr/LacazeThomas/wakapi-stats)
 
 ## 🧐 Features
 
