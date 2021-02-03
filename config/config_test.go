@@ -15,6 +15,25 @@ func TestIsDev(t *testing.T) {
 	assert.False(t, IsDev("anything else"))
 }
 
+func TestAppConfig_IsDev(t *testing.T) {
+	c := AppConfig{
+		Env:    "dev",
+	}
+	assert.True(t, c.IsDev())
+
+	c.Env = "development"
+	assert.True(t, c.IsDev())
+
+	c.Env = "prod"
+	assert.False(t, c.IsDev())
+
+	c.Env = "production"
+	assert.False(t, c.IsDev())
+
+	c.Env = "anything else"
+	assert.False(t, c.IsDev())
+}
+
 func TestLoad(t *testing.T) {
 	_ = os.Setenv("PLUGIN_API_URL", "http://localhost")
 	_ = os.Setenv("PLUGIN_API_KEY", "fdsg-sfdg-dsfg-sdfg")
