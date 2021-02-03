@@ -40,6 +40,8 @@ Generator images from Wakapi
 
 - **✅ 100 % free and open-source**
 
+- **✅ Work with drone.yml**
+
 - **✅ Generate most used editors**
 
 - **✅ Generate most used programming languages**
@@ -50,7 +52,11 @@ Generator images from Wakapi
 
 
 ## 🛠️ Installation Steps
-### 🐳 Option 1: Run from Docker run 
+
+### 🐳 Option 1: Run with Drone.io
+**See [here](https://github.com/LacazeThomas/LacazeThomas/blob/main/.drone.yml)** 
+
+### 🐳 Option 2: Run from Docker run 
 ```bash
 # Run the container
 $ docker run -d \
@@ -68,10 +74,10 @@ $ docker run -d \
   --name wakapi-stats thomaslacaze/wakapi-stats:1.0.0
 ```
 
-### 🐳 Option 2: Run from Docker-compose
+### 🐳 Option 3: Run from Docker-compose
 **See [here](https://github.com/LacazeThomas/wakapi-stats/blob/main/docker-compose.yml)** 
 
-### 💻 Option 2: Run from source
+### 💻 Option 4: Run from source
 #### Prerequisites
 * Go >= 1.8 (with `$GOPATH` properly set)
 
@@ -91,16 +97,16 @@ cd wakapi-stats
 
 | Environment Variable      | Default      | Description                                                         |
 |---------------------------|--------------|---------------------------------------------------------------------|
-| `ENVIRONMENT`               | `dev`          | Whether to use development or production settings                  |
-| `API_URL`               | None          | Wakapi URL, exemple : https://wakapi.thomaslacaze.fr                  |
-| `API_KEY`               | None          | Wakapi API Key, same as your using in your editors                  |
-| `AccessToken`               | None          | Github Token, generate [here](https://github.com/settings/tokens)                  |
-| `Branch`               | `main`          | Github Branch where commit will be publish                  |
-| `Message`               | `Update images from wakapi-stats`          | Displayed message on the commit                  |
-| `CommitName`               | None          | Name for commit                   |
-| `CommitEmail`               | None          | Email for commit                  |
-| `UserName`               | None          | Github username                  |
-| `RepoName`               | None          | Github repo where commit will be publish                  |
+| `PLUGIN_ENVIRONMENT`               | `dev`          | Whether to use development or production settings                  |
+| `PLUGIN_API_URL`               | None          | Wakapi URL, exemple : https://wakapi.thomaslacaze.fr                  |
+| `PLUGIN_API_KEY`               | None          | Wakapi API Key, same as your using in your editors                  |
+| `PLUGIN_ACCESSTOKEN`               | None          | Github Token, generate [here](https://github.com/settings/tokens)                  |
+| `PLUGIN_BRANCH`               | `main`          | Github Branch where commit will be publish                  |
+| `PLUGIN_MESSAGE`               | `Update images from wakapi-stats`          | Displayed message on the commit                  |
+| `PLUGIN_COMMITNAME`               | None          | Name for commit                   |
+| `PLUGIN_COMMITEMAIL`               | None          | Email for commit                  |
+| `PLUGIN_USERNAME`               | None          | Github username                  |
+| `PLUGIN_REPO`               | None          | Github repo where commit will be publish                  |
 
 
 4. Run the app
