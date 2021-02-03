@@ -49,7 +49,7 @@ func getToStruct(APIUrl string, APIKEY string, target interface{}) (err error) {
 	return
 }
 
-//GetSummary from wakapki
+//GetSummary from Wakapki
 func GetSummary(cfg config.AppConfig) (s models.Summary) {
 	getToStruct(cfg.APIURL+config.WakapiSummary, cfg.APIKey, &s)
 	return s
