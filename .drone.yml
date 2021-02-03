@@ -8,6 +8,12 @@ platform:
   os: linux
 
 steps:
+
+- name: unit test
+  image: golang
+  commands:
+    - go test ./... 
+
 - name: publish
   image: plugins/docker
   settings:
