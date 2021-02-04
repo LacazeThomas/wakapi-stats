@@ -1,4 +1,7 @@
 mode: set
-github.com/lacazethomas/wakapi-stats/config/config.go:27.34,29.2 1 0
-github.com/lacazethomas/wakapi-stats/config/config.go:31.29,33.2 1 1
-github.com/lacazethomas/wakapi-stats/config/config.go:35.44,40.2 3 1
+github.com/lacazethomas/wakapi-stats/models/summary.go:24.42,24.59 1 1
+github.com/lacazethomas/wakapi-stats/models/summary.go:25.42,25.69 1 1
+github.com/lacazethomas/wakapi-stats/models/summary.go:26.42,26.76 1 1
+github.com/lacazethomas/wakapi-stats/config/config.go:30.34,32.2 1 1
+github.com/lacazethomas/wakapi-stats/config/config.go:35.29,37.2 1 1
+github.com/lacazethomas/wakapi-stats/config/config.go:40.44,45.2 3 1
