@@ -17,7 +17,7 @@ steps:
   commands:
     - go get golang.org/x/tools/cmd/cover
     - go get github.com/mattn/goveralls
-    - go test ./...  -v -run=Coverage -covermode=count -coverprofile=coverage.out
+    - go test ./...  -v -covermode=count -coverprofile=coverage.out
     - $GOPATH/bin/goveralls -coverprofile=coverage.out -service=drone-ci -repotoken $${coveralls_token}
 
 - name: publish to Dockerhub image
