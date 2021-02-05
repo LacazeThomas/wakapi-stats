@@ -1,13 +1,7 @@
 package utils
 
 import (
-	"bufio"
-	"bytes"
 	"context"
-	"image"
-	"image/png"
-	"os"
-
 	"github.com/google/go-github/github"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -32,30 +26,6 @@ func initRepositoryContentFileOptions(gitProfile config.GitConfig, imageContent 
 	}
 }
 
-func decode(filename string) (image.Image, string, error) {
-	f, err := os.Open(filename)
-	if err != nil {
-		return nil, "", err
-	}
-	defer f.Close()
-	return image.Decode(bufio.NewReader(f))
-}
-
-func getImageBytes(filename string) ([]byte, error) {
-	img, _, err := decode(filename)
-	if err != nil {
-		return []byte{}, errors.Wrap(err, "error decoding image")
-	}
-
-	buf := new(bytes.Buffer)
-	err = png.Encode(buf, img)
-	if err != nil {
-		return []byte{}, errors.Wrap(err, "error encoding image")
-	}
-
-	return buf.Bytes(), nil
-}
-
 //PublishToGithub with git config and file to push. It will automatically create or update file
 func PublishToGithub(gitProfile config.GitConfig, filename string) (err error) {
 	ts := oauth2.StaticTokenSource(
@@ -63,7 +33,12 @@ func PublishToGithub(gitProfile config.GitConfig, filename string) (err error) {
 	)
 	tc := oauth2.NewClient(oauth2.NoContext, ts)
 	client := github.NewClient(tc)
+
 	imageContent, err := getImageBytes(filename)
+	if err != nil{
+		return errors.Wrap(err, "error getting bytes from filename")
+	}
+
 	commitOption := initRepositoryContentFileOptions(gitProfile, imageContent)
 	ctx := context.Background()
 
