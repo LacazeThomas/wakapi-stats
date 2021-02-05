@@ -21,6 +21,10 @@ Generator images from Wakapi
   <a href="https://drone.thomaslacaze.fr/LacazeThomas/wakapi-stats">
     <img src="https://drone.thomaslacaze.fr/api/badges/LacazeThomas/wakapi-stats/status.svg">
   </a>
+
+  <a href="https://coveralls.io/github/LacazeThomas/wakapi-stats?branch=main">
+    <img src="https://coveralls.io/repos/github/LacazeThomas/wakapi-stats/badge.svg?branch=main">
+  </a>
 </p>
 
 <p align="center">
