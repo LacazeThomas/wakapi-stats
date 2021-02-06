@@ -1,14 +1,14 @@
 package models
 
 import (
-	"github.com/stretchr/testify/assert"
 	"sort"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSortIntSlice(t *testing.T) {
-	s := []SummaryItems{SummaryItems{"b",10},SummaryItems{"a",10},SummaryItems{"z",20},SummaryItems{"a",20}}
+	s := []SummaryItem{{"b", 10}, {"a", 10}, {"z", 20}, {"a", 20}}
 	sort.Sort(ItemsSorter(s))
 	assert.True(t, sort.IsSorted(ItemsSorter(s)))
 }
-

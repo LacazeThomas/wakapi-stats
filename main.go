@@ -44,9 +44,9 @@ func main() {
 	}
 }
 
-var neededStats = func(summary models.Summary) map[string][]models.SummaryItems {
+var neededStats = func(summary models.Summary) map[string][]models.SummaryItem {
 
-	return map[string][]models.SummaryItems{
+	return map[string][]models.SummaryItem{
 		"editors.png": summary.Editors, "languages.png": summary.Languages, "operatingSystems.png": summary.OperatingSystems,
 	}
 }
