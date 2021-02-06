@@ -2,6 +2,7 @@ package utils
 
 import (
 	"context"
+
 	"github.com/google/go-github/github"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -31,11 +32,11 @@ func PublishToGithub(gitProfile config.GitConfig, filename string) (err error) {
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: gitProfile.AccessToken},
 	)
-	tc := oauth2.NewClient(oauth2.NoContext, ts)
+	tc := oauth2.NewClient(context.Background(), ts)
 	client := github.NewClient(tc)
 
 	imageContent, err := getImageBytes(filename)
-	if err != nil{
+	if err != nil {
 		return errors.Wrap(err, "error getting bytes from filename")
 	}
 
