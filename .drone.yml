@@ -15,7 +15,7 @@ steps:
     coveralls_token:
       from_secret: coveralls_token
     deepsource_dsn:
-      from_secret: DEEPSOURCE_DSN
+      from_secret: deepsource_dsn
   commands:
     - go get golang.org/x/tools/cmd/cover
     - go get github.com/mattn/goveralls
