@@ -23,15 +23,15 @@ var (
 func TestInitRepositoryContentFileOptions(t *testing.T) {
 
 	expected := &github.RepositoryContentFileOptions{
-		Branch:  github.String("main"),
-		Message: github.String("Update images from wakapi-stats"),
+		Branch:  github.String(testGitConfig.Branch),
+		Message: github.String(testGitConfig.Message),
 		Committer: &github.CommitAuthor{
-			Name:  github.String("LACAZE Thomas"),
-			Email: github.String("contact@thomaslacaze.fr"),
+			Name:  github.String(testGitConfig.CommitName),
+			Email: github.String(testGitConfig.CommitEmail),
 		},
 		Author: &github.CommitAuthor{
-			Name:  github.String("LACAZE Thomas"),
-			Email: github.String("contact@thomaslacaze.fr"),
+			Name:  github.String(testGitConfig.CommitName),
+			Email: github.String(testGitConfig.CommitEmail),
 		},
 		Content: []byte("Hello"),
 	}
