@@ -19,6 +19,9 @@ steps:
     - go get github.com/mattn/goveralls
     - go test ./...  -v -covermode=count -coverprofile=coverage.out
     - $GOPATH/bin/goveralls -coverprofile=coverage.out -service=drone-ci -repotoken $${coveralls_token}
+    - curl https://deepsource.io/cli | sh
+    - ./bin/deepsource report --analyzer test-coverage --key go --value-file ./coverage.out
+
 
 - name: publish to Dockerhub image
   image: plugins/docker
