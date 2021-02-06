@@ -27,4 +27,9 @@ func TestCreateStatsDiagram(t *testing.T) {
 	err := CreateStatsDiagram(summaries.Projects, "projects.png")
 	assert.ErrorIs(t, nil, err)
 	assert.FileExists(t, "projects.png")
+
+	err = CreateStatsDiagram(summaries.Projects, "null/projects.png")
+	assert.Error(t, err)
+	assert.Regexp(t, ".*error creating image: .*", err.Error())
+	assert.NoFileExists(t, "null/projects.png")
 }

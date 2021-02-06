@@ -17,7 +17,7 @@ func TestIsDev(t *testing.T) {
 
 func TestAppConfigIsDev(t *testing.T) {
 	c := AppConfig{
-		Env:    "dev",
+		Env: "dev",
 	}
 	assert.True(t, c.IsDev())
 
