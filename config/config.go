@@ -5,6 +5,7 @@ import (
 )
 
 const (
+	//WakapiSummary endpoint
 	WakapiSummary = "/api/summary"
 )
 
