@@ -2,24 +2,24 @@ package models
 
 //Summary struct contains API response
 type Summary struct {
-	UserID           string         `json:"user_id"`
-	From             struct{}       `json:"from"`
-	To               struct{}       `json:"to"`
-	Projects         []SummaryItems `json:"projects"`
-	Languages        []SummaryItems `json:"languages"`
-	Editors          []SummaryItems `json:"editors"`
-	OperatingSystems []SummaryItems `json:"operating_systems"`
-	Machines         []SummaryItems `json:"machines"`
+	UserID           string        `json:"user_id"`
+	From             struct{}      `json:"from"`
+	To               struct{}      `json:"to"`
+	Projects         []SummaryItem `json:"projects"`
+	Languages        []SummaryItem `json:"languages"`
+	Editors          []SummaryItem `json:"editors"`
+	OperatingSystems []SummaryItem `json:"operating_systems"`
+	Machines         []SummaryItem `json:"machines"`
 }
 
-//SummaryItems struct contains item details
-type SummaryItems struct {
+//SummaryItem struct contains item details
+type SummaryItem struct {
 	Key   string `json:"key"`
 	Total int    `json:"total"`
 }
 
 //ItemsSorter using go sort
-type ItemsSorter []SummaryItems
+type ItemsSorter []SummaryItem
 
 func (a ItemsSorter) Len() int           { return len(a) }
 func (a ItemsSorter) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }

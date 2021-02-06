@@ -11,7 +11,7 @@ import (
 )
 
 //CreateStatsDiagram using SummaryItems and image name
-func CreateStatsDiagram(summaryItems []models.SummaryItems, imageName string) (err error) {
+func CreateStatsDiagram(summaryItems []models.SummaryItem, imageName string) (err error) {
 	sort.Sort(models.ItemsSorter(summaryItems))
 	var chartItems []chart.Value
 
