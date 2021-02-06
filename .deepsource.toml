@@ -9,3 +9,9 @@ enabled = true
   [analyzers.meta]
   import_paths = ["github.com/LacazeThomas/wakapi-stats"]
   dependencies_vendored = true
+
+[[analyzers]]
+name = "test-coverage"
+enabled = true
+
+
