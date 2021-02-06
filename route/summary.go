@@ -13,7 +13,7 @@ import (
 	"github.com/lacazethomas/wakapi-stats/models"
 )
 
-func getToStruct(APIUrl string, APIKEY string, target interface{}) (err error) {
+func getToStruct(APIUrl, APIKEY string, target interface{}) (err error) {
 
 	req, err := http.NewRequest(
 		http.MethodGet,
