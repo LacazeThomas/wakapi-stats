@@ -73,6 +73,8 @@ Generator images from Wakapi
 ## 🔧 Endpoint availables 
 ### (/stats/editors, /stats/languages, /stats/operatingSystems, /stats/machines, /stats/projects)
 
+### Range possibility today, yesterday, week, month, year, 7_days, last_7_days, 30_days, last_30_days, 12_months, last_12_months, any
+
 Please do not forget to put your wakapi endpoint into public 
 ```
 http://localhost:8080/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
