@@ -89,7 +89,7 @@ https://wakapi-stats.thomaslacaze.fr/editors?url=https://stats-code.thomaslacaze
 ```bash
 # Run the container
 $ docker run -d \
-  -p 3000:3000 \
+  -p 8080:8080 \
   -e "ENVIRONMENT=prod" \
   --name wakapi-stats thomaslacaze/wakapi-stats:1.1.0
 ```
