@@ -30,6 +30,6 @@ func main() {
 	zap.ReplaceGlobals(logger)
 
 	r := gin.Default()
-	r.GET("/stats/:type", handler.HandlerSummary)
+	r.GET("/:type", handler.HandlerSummary)
 	r.Run(":8080")
 }
