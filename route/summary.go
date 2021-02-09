@@ -22,9 +22,12 @@ func getToStruct(APIUrl string, target interface{}) (err error) {
 		return errors.Wrap(err, "error creating HTTP request")
 	}
 
-	res, _ := http.DefaultClient.Do(req)
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return errors.Wrap(err, "error executing HTTP request")
+	}
+
 	if res.StatusCode != 200 {
-		fmt.Println(res.StatusCode)
 		return errors.New(fmt.Sprintf("error sending HTTP request code error %d", res.StatusCode))
 	}
 

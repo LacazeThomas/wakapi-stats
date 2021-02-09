@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/pkg/errors"
 	"go.uber.org/zap"
 
 	"github.com/lacazethomas/wakapi-stats/models"
@@ -19,26 +20,17 @@ func HandlerSummary(c *gin.Context) {
 	appURI := c.Query("url")
 
 	if t == "" || appURI == "" {
-		zap.S().Errorf("Missing param or query into your url")
-		result = []byte("Error has been detected, see logs")
-		c.Data(http.StatusOK, "text/plain", result)
+		checkError(c, errors.New("Missing param or url"))
 	}
 
 	summary, err := route.GetSummary(appURI)
-	if err != nil {
-		zap.S().Errorf("http error %s", err.Error())
-		result = []byte("Error has been detected, see logs")
-		c.Data(http.StatusOK, "text/plain", result)
-	}
+	checkError(c, err)
 
 	summaryItem = availableStats(summary)[t]
 	zap.S().Debugf("Receive summary %+v", summaryItem)
 
 	result, err = utils.CreateStatsDiagram(summaryItem)
-	if err != nil {
-		zap.S().Errorf("creating %s", err.Error())
-		result = []byte("Error has been detected, see logs")
-	}
+	checkError(c, err)
 
 	zap.S().Debugf("Receive images %+v", result)
 	c.Data(http.StatusOK, "image/png", result)
@@ -48,5 +40,13 @@ var availableStats = func(summary models.Summary) map[string][]models.SummaryIte
 
 	return map[string][]models.SummaryItem{
 		"editors": summary.Data.Editors, "languages": summary.Data.Languages, "operatingSystems": summary.Data.OperatingSystems, "machines": summary.Data.Machines, "projects": summary.Data.Projects,
+	}
+}
+
+func checkError(c *gin.Context, err error) {
+	if err != nil {
+		zap.S().Error(err)
+		c.Error(err)
+		c.AbortWithStatusJSON(200, gin.H{"message": err.Error()})
 	}
 }
