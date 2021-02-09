@@ -52,3 +52,15 @@ func GetSummary(cfg config.AppConfig) (s models.Summary) {
 	getToStruct(cfg.APIURL+config.WakapiSummary, cfg.APIKey, &s)
 	return s
 }
+
+func GetSummaryEditors(cfg config.AppConfig) []models.SummaryItems {
+	var s models.Summary
+	getToStruct(cfg.APIURL+config.WakapiSummary, cfg.APIKey, &s)
+	return s.Editors
+}
+
+func GetSummaryLanguages(cfg config.AppConfig) []models.SummaryItems {
+	var s models.Summary
+	getToStruct(cfg.APIURL+config.WakapiSummary, cfg.APIKey, &s)
+	return s.Languages
+}
