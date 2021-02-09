@@ -17,7 +17,7 @@ func TestIsDev(t *testing.T) {
 
 func TestAppConfigIsDev(t *testing.T) {
 	c := AppConfig{
-		Env:    "dev",
+		Env: "dev",
 	}
 	assert.True(t, c.IsDev())
 
@@ -47,21 +47,11 @@ func TestLoad(t *testing.T) {
 	_ = os.Setenv("PLUGIN_USERNAME", "lacazethomas")
 	_ = os.Setenv("PLUGIN_REPO", "testname")
 
-	appConfig, gitConfig := Load()
+	appConfig := GetAppConfig()
 
 	assert.Equal(t, appConfig, AppConfig{
 		APIKey: "fdsg-sfdg-dsfg-sdfg",
 		APIURL: "http://localhost",
 		Env:    "dev",
-	})
-
-	assert.Equal(t, gitConfig, GitConfig{
-		AccessToken: "dfdjgfdjfgdjfddjgf",
-		Branch:      "main",
-		Message:     "Update images from wakapi-stats",
-		CommitName:  "LACAZE Thomas",
-		CommitEmail: "contact@thomaslacaze.fr",
-		UserName:    "lacazethomas",
-		RepoName:    "testname",
 	})
 }

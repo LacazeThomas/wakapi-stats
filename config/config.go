@@ -8,16 +8,7 @@ const (
 	WakapiSummary = "/api/summary"
 )
 
-//GitConfig struct contains GH needed env
-type GitConfig struct {
-	AccessToken string `env:"PLUGIN_ACCESSTOKEN"`
-	Branch      string `env:"PLUGIN_BRANCH"`
-	Message     string `env:"PLUGIN_MESSAGE"`
-	CommitName  string `env:"PLUGIN_COMMITNAME"`
-	CommitEmail string `env:"PLUGIN_COMMITEMAIL"`
-	UserName    string `env:"PLUGIN_USERNAME"`
-	RepoName    string `env:"PLUGIN_REPO"`
-}
+var appConfig AppConfig
 
 //AppConfig struct contains WakaAPI needed env
 type AppConfig struct {
@@ -36,10 +27,17 @@ func IsDev(env string) bool {
 	return env == "dev" || env == "development"
 }
 
-//Load config struct with env variables
-func Load() (cfg AppConfig, git GitConfig) {
-
-	env.Parse(&cfg)
-	env.Parse(&git)
+//InitAppConfig struct with env variables
+func initAppConfig() {
+	env.Parse(&appConfig)
 	return
+}
+
+//GetAppConfig return initialize config structure with variable env
+func GetAppConfig() AppConfig {
+	if (appConfig == AppConfig{}) {
+		initAppConfig()
+	}
+
+	return appConfig
 }
