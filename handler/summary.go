@@ -12,7 +12,8 @@ import (
 	"github.com/lacazethomas/wakapi-stats/utils"
 )
 
-func HandlerSummary(c *gin.Context) {
+//HandlerSummary return corresponding image
+func Summary(c *gin.Context) {
 	var summaryItem []models.SummaryItem
 	var result []byte
 
