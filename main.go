@@ -2,20 +2,20 @@ package main
 
 import (
 	"log"
+	"net/http"
 
+	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
 	"github.com/lacazethomas/wakapi-stats/config"
-	"github.com/lacazethomas/wakapi-stats/models"
-	"github.com/lacazethomas/wakapi-stats/route"
-	"github.com/lacazethomas/wakapi-stats/utils"
+	"github.com/lacazethomas/wakapi-stats/handler"
 )
 
 func main() {
 	var logger *zap.Logger
 	var err error
 
-	appConfig, gitConfig := config.Load()
+	appConfig := config.GetAppConfig()
 
 	// Set log level
 	if appConfig.IsDev() {
@@ -30,23 +30,10 @@ func main() {
 	defer logger.Sync()
 	zap.ReplaceGlobals(logger)
 
-	summary := route.GetSummary(appConfig)
-
-	zap.S().Debugf("Receive summary %+v", summary)
-
-	for key, element := range neededStats(summary) {
-
-		err = utils.CreateStatsDiagram(element, key)
-		utils.Check("creating "+key, err)
-		err = utils.PublishToGithub(gitConfig, key)
-		utils.Check("publishing "+key, err)
-
-	}
-}
-
-var neededStats = func(summary models.Summary) map[string][]models.SummaryItem {
-
-	return map[string][]models.SummaryItem{
-		"editors.png": summary.Editors, "languages.png": summary.Languages, "operatingSystems.png": summary.OperatingSystems,
-	}
+	r := gin.Default()
+	r.GET("/:type", handler.HandlerSummary)
+	r.GET("/", func(c *gin.Context) {
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte("Hi 👋, this is an <a href=\"/languages?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days\">example</a>"))
+	})
+	r.Run(":8080")
 }

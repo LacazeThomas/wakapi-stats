@@ -8,7 +8,7 @@ import (
 )
 
 func TestSortIntSlice(t *testing.T) {
-	s := []SummaryItem{{"b", 10}, {"a", 10}, {"z", 20}, {"a", 20}}
+	s := []SummaryItem{{TotalSeconds: 10}, {TotalSeconds: 10}, {TotalSeconds: 20}, {TotalSeconds: 20}}
 	sort.Sort(ItemsSorter(s))
 	assert.True(t, sort.IsSorted(ItemsSorter(s)))
 }

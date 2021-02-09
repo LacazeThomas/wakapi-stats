@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"os"
+	"bytes"
 	"sort"
 
 	"github.com/pkg/errors"
@@ -11,7 +11,7 @@ import (
 )
 
 //CreateStatsDiagram using SummaryItems and image name
-func CreateStatsDiagram(summaryItems []models.SummaryItem, imageName string) (err error) {
+func CreateStatsDiagram(summaryItems []models.SummaryItem) ([]byte, error) {
 	sort.Sort(models.ItemsSorter(summaryItems))
 	var chartItems []chart.Value
 
@@ -21,17 +21,17 @@ func CreateStatsDiagram(summaryItems []models.SummaryItem, imageName string) (er
 	}
 
 	for i := 0; i < maxLen; i++ {
-		val := chart.Value{Value: float64(summaryItems[i].Total), Label: summaryItems[i].Key, Style: chart.Style{
+		val := chart.Value{Value: float64(summaryItems[i].TotalSeconds), Label: summaryItems[i].Name, Style: chart.Style{
 			FontColor: chart.ColorWhite,
 		}}
 		chartItems = append(chartItems, val)
 
 	}
 
-	return createPieFromChartValues(chartItems, imageName)
+	return createPieFromChartValues(chartItems)
 }
 
-func createPieFromChartValues(chartItems []chart.Value, imageName string) (err error) {
+func createPieFromChartValues(chartItems []chart.Value) ([]byte, error) {
 	chart.DefaultBackgroundColor = chart.ColorTransparent
 	chart.DefaultCanvasColor = chart.ColorTransparent
 
@@ -43,16 +43,12 @@ func createPieFromChartValues(chartItems []chart.Value, imageName string) (err e
 		Values: chartItems,
 	}
 
-	f, err := os.Create(imageName)
-	if err != nil {
-		return errors.Wrap(err, "error creating image")
-	}
-	defer f.Close()
+	b := bytes.NewBuffer([]byte{})
 
-	err = graph.Render(chart.PNG, f)
+	err := graph.Render(chart.PNG, b)
 	if err != nil {
-		return errors.Wrap(err, "error rendering image from graph")
+		return nil, errors.Wrap(err, "error rendering image from graph")
 	}
 
-	return
+	return b.Bytes(), nil
 }

@@ -5,9 +5,10 @@ go 1.15
 require (
 	github.com/blend/go-sdk v1.20210201.1 // indirect
 	github.com/caarlos0/env v3.5.0+incompatible
+	github.com/gin-gonic/gin v1.6.3
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/google/go-cmp v0.5.4 // indirect
-	github.com/google/go-github v17.0.0+incompatible
+	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/mattn/goveralls v0.0.7 // indirect
@@ -20,7 +21,7 @@ require (
 	golang.org/x/lint v0.0.0-20201208152925-83fdc39ff7b5 // indirect
 	golang.org/x/mod v0.4.1 // indirect
 	golang.org/x/net v0.0.0-20210119194325-5f4716e94777 // indirect
-	golang.org/x/oauth2 v0.0.0-20210201163806-010130855d6c
+	golang.org/x/oauth2 v0.0.0-20210201163806-010130855d6c // indirect
 	golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
