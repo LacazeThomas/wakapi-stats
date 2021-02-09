@@ -27,6 +27,6 @@ func TestCreateStatsDiagram(t *testing.T) {
 
 	_, err = CreateStatsDiagram(nil)
 	assert.Error(t, err)
-	assert.Regexp(t, err.Error(), "error rendering image from graph: please provide at least one value\" to match ")
+	assert.Regexp(t, err.Error(), "This item is empty")
 
 }

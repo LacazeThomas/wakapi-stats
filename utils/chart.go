@@ -12,6 +12,10 @@ import (
 
 //CreateStatsDiagram using SummaryItems and image name
 func CreateStatsDiagram(summaryItems []models.SummaryItem) ([]byte, error) {
+	if len(summaryItems) == 0 {
+		return nil, errors.New("This item is empty")
+	}
+
 	sort.Sort(models.ItemsSorter(summaryItems))
 	var chartItems []chart.Value
 
