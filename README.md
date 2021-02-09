@@ -60,7 +60,7 @@ Generator images from Wakapi
 
 - **✅ 100 % free and open-source**
 
-- **✅ Work with drone.yml**
+- **✅ No need CI**
 
 - **✅ Generate most used editors**
 
@@ -70,34 +70,32 @@ Generator images from Wakapi
 
 - **✅ Self-hosted**
 
+## 🔧 Endpoint availables (/stats/editors, /stats/languages, /stats/operatingSystems, /stats/machines, /stats/projects)
+Please do not forget to put your wakapi endpoint into public 
+```
+http://localhost:8080/stats/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
+```
+
+## ☁️ Public instance
+```
+http://wakapi-stats.thomaslacaze.fr/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
+```
 
 ## 🛠️ Installation Steps
 
-### 🐳 Option 1: Run with Drone.io
-**See [here](https://github.com/LacazeThomas/LacazeThomas/blob/main/.drone.yml)** 
-
-### 🐳 Option 2: Run from Docker run 
+### 🐳 Option 1: Run from Docker run 
 ```bash
 # Run the container
 $ docker run -d \
   -p 3000:3000 \
-  -e "PLUGIN_ENVIRONMENT=prod" \
-  -e "PLUGIN_API_URL=FILL_ME" \
-  -e "PLUGIN_API_KEY=FILL_ME" \
-  -e "PLUGIN_ACCESSTOKEN=FILL_ME" \
-  -e "PLUGIN_BRANCH=FILL_ME" \
-  -e "PLUGIN_MESSAGE=FILL_ME" \
-  -e "PLUGIN_COMMITNAME=FILL_ME" \
-  -e "PLUGIN_COMMITEMAIL=FILL_ME" \
-  -e "PLUGIN_USERNAME=FILL_ME" \
-  -e "PLUGIN_REPO=FILL_ME" \
-  --name wakapi-stats thomaslacaze/wakapi-stats:1.0.0
+  -e "ENVIRONMENT=prod" \
+  --name wakapi-stats thomaslacaze/wakapi-stats:1.1.0
 ```
 
-### 🐳 Option 3: Run from Docker-compose
+### 🐳 Option 2: Run from Docker-compose
 **See [here](https://github.com/LacazeThomas/wakapi-stats/blob/main/docker-compose.yml)** 
 
-### 💻 Option 4: Run from source
+### 💻 Option 3: Run from source
 #### Prerequisites
 * Go >= 1.8 (with `$GOPATH` properly set)
 
@@ -117,17 +115,7 @@ cd wakapi-stats
 
 | Environment Variable      | Default      | Description                                                         |
 |---------------------------|--------------|---------------------------------------------------------------------|
-| `PLUGIN_ENVIRONMENT`               | `dev`          | Whether to use development or production settings                  |
-| `PLUGIN_API_URL`               | None          | Wakapi URL, exemple : https://wakapi.thomaslacaze.fr                  |
-| `PLUGIN_API_KEY`               | None          | Wakapi API Key, same as your using in your editors                  |
-| `PLUGIN_ACCESSTOKEN`               | None          | Github Token, generate [here](https://github.com/settings/tokens)                  |
-| `PLUGIN_BRANCH`               | `main`          | Github Branch where commit will be publish                  |
-| `PLUGIN_MESSAGE`               | `Update images from wakapi-stats`          | Displayed message on the commit                  |
-| `PLUGIN_COMMITNAME`               | None          | Name for commit                   |
-| `PLUGIN_COMMITEMAIL`               | None          | Email for commit                  |
-| `PLUGIN_USERNAME`               | None          | Github username                  |
-| `PLUGIN_REPO`               | None          | Github repo where commit will be publish                  |
-
+| `ENVIRONMENT`               | `dev`          | Whether to use development or production settings                  |
 
 4. Run the app
 
