@@ -18,7 +18,7 @@ func HandlerSummary(c *gin.Context) {
 	t := c.Param("type")
 	appURI := c.Query("url")
 
-	if len(t) == 0 || len(appURI) == 0 {
+	if t == "" || appURI == "" {
 		zap.S().Errorf("Missing param or query into your url")
 		result = []byte("Error has been detected, see logs")
 		c.Data(http.StatusOK, "text/plain", result)

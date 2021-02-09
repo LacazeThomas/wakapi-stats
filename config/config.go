@@ -22,7 +22,6 @@ func IsDev(env string) bool {
 //InitAppConfig struct with env variables
 func initAppConfig() {
 	env.Parse(&appConfig)
-	return
 }
 
 //GetAppConfig return initialize config structure with variable env
