@@ -11,7 +11,7 @@ import (
 )
 
 //CreateStatsDiagram using SummaryItems and image name
-func CreateStatsDiagram(summaryItems []models.SummaryItems) ([]byte, error) {
+func CreateStatsDiagram(summaryItems []models.SummaryItem) ([]byte, error) {
 	sort.Sort(models.ItemsSorter(summaryItems))
 	var chartItems []chart.Value
 
@@ -21,7 +21,7 @@ func CreateStatsDiagram(summaryItems []models.SummaryItems) ([]byte, error) {
 	}
 
 	for i := 0; i < maxLen; i++ {
-		val := chart.Value{Value: float64(summaryItems[i].Total), Label: summaryItems[i].Key, Style: chart.Style{
+		val := chart.Value{Value: float64(summaryItems[i].TotalSeconds), Label: summaryItems[i].Name, Style: chart.Style{
 			FontColor: chart.ColorWhite,
 		}}
 		chartItems = append(chartItems, val)

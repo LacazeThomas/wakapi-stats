@@ -35,23 +35,11 @@ func TestAppConfigIsDev(t *testing.T) {
 }
 
 func TestLoad(t *testing.T) {
-	_ = os.Setenv("PLUGIN_API_URL", "http://localhost")
-	_ = os.Setenv("PLUGIN_API_KEY", "fdsg-sfdg-dsfg-sdfg")
-	_ = os.Setenv("PLUGIN_ENVIRONMENT", "dev")
-
-	_ = os.Setenv("PLUGIN_ACCESSTOKEN", "dfdjgfdjfgdjfddjgf")
-	_ = os.Setenv("PLUGIN_BRANCH", "main")
-	_ = os.Setenv("PLUGIN_MESSAGE", "Update images from wakapi-stats")
-	_ = os.Setenv("PLUGIN_COMMITNAME", "LACAZE Thomas")
-	_ = os.Setenv("PLUGIN_COMMITEMAIL", "contact@thomaslacaze.fr")
-	_ = os.Setenv("PLUGIN_USERNAME", "lacazethomas")
-	_ = os.Setenv("PLUGIN_REPO", "testname")
+	_ = os.Setenv("ENVIRONMENT", "dev")
 
 	appConfig := GetAppConfig()
 
 	assert.Equal(t, appConfig, AppConfig{
-		APIKey: "fdsg-sfdg-dsfg-sdfg",
-		APIURL: "http://localhost",
-		Env:    "dev",
+		Env: "dev",
 	})
 }

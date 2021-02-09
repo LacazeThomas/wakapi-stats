@@ -1,21 +1,12 @@
 package config
 
-import (
-	"github.com/caarlos0/env"
-)
-
-const (
-	//WakapiSummary endpoint
-	WakapiSummary = "/api/summary"
-)
+import "github.com/caarlos0/env"
 
 var appConfig AppConfig
 
 //AppConfig struct contains WakaAPI needed env
 type AppConfig struct {
-	APIKey string `env:"PLUGIN_API_KEY"`
-	APIURL string `env:"PLUGIN_API_URL"`
-	Env    string `default:"dev" env:"PLUGIN_ENVIRONMENT"`
+	Env string `default:"dev" env:"ENVIRONMENT"`
 }
 
 //IsDev return true if application is on dev stack
@@ -39,6 +30,5 @@ func GetAppConfig() AppConfig {
 	if (appConfig == AppConfig{}) {
 		initAppConfig()
 	}
-
 	return appConfig
 }

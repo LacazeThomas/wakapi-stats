@@ -3,33 +3,30 @@ package utils
 import (
 	"testing"
 
-	"github.com/lacazethomas/wakapi-stats/models"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/lacazethomas/wakapi-stats/models"
 )
 
 func TestCreateStatsDiagram(t *testing.T) {
-	summaries := models.Summary{
-		UserID: "thomaslacaze",
-		From:   struct{}{},
-		To:     struct{}{},
-		Projects: []models.SummaryItem{
-			{
-				Key:   "space",
-				Total: 73012,
-			},
-		},
-		Languages:        []models.SummaryItem{},
-		Editors:          []models.SummaryItem{},
-		OperatingSystems: []models.SummaryItem{},
-		Machines:         []models.SummaryItem{},
+	summaryItems := []models.SummaryItem{}
+	summaryItem := models.SummaryItem{
+		Digital:      "2:5:25",
+		Hours:        2,
+		Minutes:      5,
+		Name:         "macOS",
+		Percent:      6.41,
+		Seconds:      25,
+		Text:         "2 hrs 5 mins",
+		TotalSeconds: 7525,
 	}
+	summaryItems = append(summaryItems, summaryItem)
 
-	err := CreateStatsDiagram(summaries.Projects, "projects.png")
+	_, err := CreateStatsDiagram(summaryItems)
 	assert.ErrorIs(t, nil, err)
-	assert.FileExists(t, "projects.png")
 
-	err = CreateStatsDiagram(summaries.Projects, "null/projects.png")
+	_, err = CreateStatsDiagram(nil)
 	assert.Error(t, err)
-	assert.Regexp(t, ".*error creating image: .*", err.Error())
-	assert.NoFileExists(t, "null/projects.png")
+	assert.Regexp(t, err.Error(), "error rendering image from graph: please provide at least one value\" to match ")
+
 }
