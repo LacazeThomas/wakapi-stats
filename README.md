@@ -70,10 +70,12 @@ Generator images from Wakapi
 
 - **✅ Self-hosted**
 
-## 🔧 Endpoint availables (/stats/editors, /stats/languages, /stats/operatingSystems, /stats/machines, /stats/projects)
+## 🔧 Endpoint availables 
+### (/stats/editors, /stats/languages, /stats/operatingSystems, /stats/machines, /stats/projects)
+
 Please do not forget to put your wakapi endpoint into public 
 ```
-http://localhost:8080/stats/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
+http://localhost:8080/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
 ```
 
 ## ☁️ Public instance
