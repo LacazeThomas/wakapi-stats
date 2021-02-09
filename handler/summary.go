@@ -41,7 +41,7 @@ func HandlerSummary(c *gin.Context) {
 	}
 
 	zap.S().Debugf("Receive images %+v", result)
-	c.Data(http.StatusOK, "text/plain", result)
+	c.Data(http.StatusOK, "image/png", result)
 }
 
 var availableStats = func(summary models.Summary) map[string][]models.SummaryItem {
