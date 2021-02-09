@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -31,5 +32,8 @@ func main() {
 
 	r := gin.Default()
 	r.GET("/:type", handler.HandlerSummary)
+	r.GET("/", func(c *gin.Context) {
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte("Hi 👋, this is an <a href=\"/languages?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days\">example</a>"))
+	})
 	r.Run(":8080")
 }
