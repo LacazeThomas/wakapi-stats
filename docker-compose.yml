@@ -2,7 +2,7 @@ version: '2.1'
 services:
 
  wakapistats:
-  image: thomaslacaze/wakapi-stats:1.1.0
+  image: thomaslacaze/wakapi-stats:latest
   container_name: wakapistats
   environment: 
     - ENVIRONMENT=PRODUCTION
