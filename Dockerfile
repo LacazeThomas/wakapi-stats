@@ -10,5 +10,7 @@ ENV ENVIRONMENT prod
 FROM alpine:3.13.1
 EXPOSE 8080
 COPY --from=builder /go/bin/wakapi-stats /bin/wakapi-stats
+COPY colors.json colors.json
+COPY favicon.ico favicon.ico
 
 ENTRYPOINT ["/bin/wakapi-stats"]
