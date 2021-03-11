@@ -20,21 +20,22 @@ type ColorLanguage struct {
 }
 
 func (s *SummaryItem) colorSummaryItem() ColorSummaryItem {
-	initColor()
 
 	color, _ := jsonparser.GetString(languagesColor, s.Name, "color")
 	return ColorSummaryItem{*s, color}
 }
 
-func ColorSummaryItems(s []SummaryItem) (c []ColorSummaryItem) {
+func ColorSummaryItems(s []SummaryItem, file string) (colorSummaryItems []ColorSummaryItem, err error) {
+	initColor(file)
+
 	for _, element := range s {
-		c = append(c, element.colorSummaryItem())
+		colorSummaryItems = append(colorSummaryItems, element.colorSummaryItem())
 	}
 	return
 }
 
-func initColor() {
+func initColor(file string) {
 	if languagesColor == nil {
-		languagesColor, _ = ioutil.ReadFile("colors.json")
+		languagesColor, _ = ioutil.ReadFile(file)
 	}
 }

@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -32,9 +31,8 @@ func Summary(c *gin.Context) {
 	summaryItem = availableStats(summary)[t]
 	zap.S().Debugf("Receive summary %+v", summaryItem)
 
-	colorSummaryItem := models.ColorSummaryItems(summaryItem)
-
-	fmt.Println(colorSummaryItem)
+	colorSummaryItem, err := models.ColorSummaryItems(summaryItem, "colors.json")
+	checkError(c, err)
 
 	result, err = utils.CreateStatsDiagram(colorSummaryItem)
 	checkError(c, err)
