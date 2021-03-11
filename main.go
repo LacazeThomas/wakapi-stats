@@ -37,5 +37,10 @@ func main() {
 	r.GET("/", func(c *gin.Context) {
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte("Hi 👋, this is an <a href=\"/api/v1/languages?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days\">example</a>"))
 	})
-	r.Run(":8080")
+
+	err = r.Run(":8080")
+	if err != nil {
+		log.Println("Unable to start web server")
+	}
+
 }
