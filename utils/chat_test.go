@@ -9,21 +9,7 @@ import (
 )
 
 func TestCreateStatsDiagram(t *testing.T) {
-	colorSummaryItems := []models.ColorSummaryItem{}
-	colorSummaryItem := models.ColorSummaryItem{
-		models.SummaryItem{
-			Digital:      "2:5:25",
-			Hours:        2,
-			Minutes:      5,
-			Name:         "macOS",
-			Percent:      6.41,
-			Seconds:      25,
-			Text:         "2 hrs 5 mins",
-			TotalSeconds: 7525,
-		},
-		"",
-	}
-	colorSummaryItems = append(colorSummaryItems, colorSummaryItem)
+	colorSummaryItems := []models.ColorSummaryItem{{models.SummaryItem{TotalSeconds: 50, Name: "John"}, "#112233"}, {models.SummaryItem{TotalSeconds: 60, Name: "John"}, ""}}
 
 	_, err := CreateStatsDiagram(colorSummaryItems)
 	assert.ErrorIs(t, nil, err)
