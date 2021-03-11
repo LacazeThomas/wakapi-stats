@@ -1,6 +1,8 @@
 package models
 
-import "time"
+import (
+	"time"
+)
 
 //Summary struct contains API response
 type Summary struct {
@@ -33,7 +35,7 @@ type SummaryItem struct {
 }
 
 //ItemsSorter using go sort
-type ItemsSorter []SummaryItem
+type ItemsSorter []ColorSummaryItem
 
 func (a ItemsSorter) Len() int           { return len(a) }
 func (a ItemsSorter) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }

@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -12,7 +13,7 @@ import (
 	"github.com/lacazethomas/wakapi-stats/utils"
 )
 
-//HandlerSummary return corresponding image
+//Summary return corresponding image
 func Summary(c *gin.Context) {
 	var summaryItem []models.SummaryItem
 	var result []byte
@@ -20,6 +21,7 @@ func Summary(c *gin.Context) {
 	t := c.Param("type")
 	appURI := c.Query("url")
 
+	zap.S().Debugf("Receive  %+v %+v", t, appURI)
 	if t == "" || appURI == "" {
 		checkError(c, errors.New("Missing param or url"))
 	}
@@ -30,11 +32,15 @@ func Summary(c *gin.Context) {
 	summaryItem = availableStats(summary)[t]
 	zap.S().Debugf("Receive summary %+v", summaryItem)
 
-	result, err = utils.CreateStatsDiagram(summaryItem)
+	colorSummaryItem := models.ColorSummaryItems(summaryItem)
+
+	fmt.Println(colorSummaryItem)
+
+	result, err = utils.CreateStatsDiagram(colorSummaryItem)
 	checkError(c, err)
 
 	zap.S().Debugf("Receive images %+v", result)
-	c.Data(http.StatusOK, "image/png", result)
+	c.Data(http.StatusOK, "image/svg+xml", result)
 }
 
 var availableStats = func(summary models.Summary) map[string][]models.SummaryItem {

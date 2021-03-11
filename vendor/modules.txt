@@ -54,6 +54,9 @@ github.com/pmezard/go-difflib/difflib
 # github.com/stretchr/testify v1.7.0
 ## explicit
 github.com/stretchr/testify/assert
+# github.com/thinkerou/favicon v0.1.0
+## explicit
+github.com/thinkerou/favicon
 # github.com/ugorji/go v1.2.4
 ## explicit
 # github.com/ugorji/go/codec v1.2.4

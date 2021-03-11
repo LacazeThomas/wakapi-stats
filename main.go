@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/thinkerou/favicon"
 	"go.uber.org/zap"
 
 	"github.com/lacazethomas/wakapi-stats/config"
@@ -31,9 +32,10 @@ func main() {
 	zap.ReplaceGlobals(logger)
 
 	r := gin.Default()
-	r.GET("/:type", handler.Summary)
+	r.Use(favicon.New("./favicon.ico"))
+	r.GET("/api/v1/:type", handler.Summary)
 	r.GET("/", func(c *gin.Context) {
-		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte("Hi 👋, this is an <a href=\"/languages?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days\">example</a>"))
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte("Hi 👋, this is an <a href=\"/api/v1/languages?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days\">example</a>"))
 	})
 	r.Run(":8080")
 }
