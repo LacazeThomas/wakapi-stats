@@ -1,5 +1,8 @@
 # github.com/blend/go-sdk v1.20210205.5
 ## explicit
+# github.com/buger/jsonparser v1.1.1
+## explicit
+github.com/buger/jsonparser
 # github.com/caarlos0/env v3.5.0+incompatible
 ## explicit
 github.com/caarlos0/env
@@ -40,8 +43,6 @@ github.com/json-iterator/go
 github.com/leodido/go-urn
 # github.com/mattn/go-isatty v0.0.12
 github.com/mattn/go-isatty
-# github.com/mattn/goveralls v0.0.7
-## explicit
 # github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 github.com/modern-go/concurrent
 # github.com/modern-go/reflect2 v1.0.1
