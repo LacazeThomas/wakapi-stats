@@ -46,11 +46,11 @@ Generator images from Wakapi
   </tr>
   <tr>
     <td align="center">
-      <img alt="" width="380" src="https://wakapi-stats.thomaslacaze.fr/languages?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/last_30_days">
+      <img alt="" width="380" src="https://wakapi-stats.thomaslacaze.fr/api/v1/languages?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/last_30_days">
       <img width="800" height="1" alt="">
     </td>
     <td align="center">
-      <img alt="" width="380" src="https://wakapi-stats.thomaslacaze.fr/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/last_30_days">
+      <img alt="" width="380" src="https://wakapi-stats.thomaslacaze.fr/api/v1/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/last_30_days">
       <img width="800" height="1" alt="">
     </td>
   </tr>
@@ -77,12 +77,12 @@ Generator images from Wakapi
 
 Please do not forget to put your wakapi endpoint into public 
 ```
-http://localhost:8080/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
+http://localhost:8080/api/v1/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
 ```
 
 ## ☁️ [Public instance](https://wakapi-stats.thomaslacaze.fr)
 ```
-https://wakapi-stats.thomaslacaze.fr/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
+https://wakapi-stats.thomaslacaze.fr/api/v1/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
 ```
 
 ## 🛠️ Installation Steps
