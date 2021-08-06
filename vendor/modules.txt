@@ -32,17 +32,10 @@ github.com/golang/freetype/truetype
 # github.com/golang/protobuf v1.5.2
 ## explicit
 github.com/golang/protobuf/proto
-# github.com/google/go-github v17.0.0+incompatible
-## explicit
-# github.com/google/go-querystring v1.1.0
-## explicit
 # github.com/json-iterator/go v1.1.11
 ## explicit
 github.com/json-iterator/go
-# github.com/kr/text v0.2.0
-## explicit
 # github.com/leodido/go-urn v1.2.1
-## explicit
 github.com/leodido/go-urn
 # github.com/mattn/go-isatty v0.0.13
 ## explicit
@@ -102,10 +95,6 @@ golang.org/x/image/math/fixed
 ## explicit
 # golang.org/x/mod v0.4.2
 ## explicit
-# golang.org/x/net v0.0.0-20210805182204-aaa1db679c0d
-## explicit
-# golang.org/x/oauth2 v0.0.0-20210805134026-6f1e6394065a
-## explicit
 # golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
@@ -115,8 +104,6 @@ golang.org/x/text/internal/language
 golang.org/x/text/internal/language/compact
 golang.org/x/text/internal/tag
 golang.org/x/text/language
-# google.golang.org/appengine v1.6.7
-## explicit
 # google.golang.org/protobuf v1.27.1
 ## explicit
 google.golang.org/protobuf/encoding/prototext
@@ -152,7 +139,4 @@ google.golang.org/protobuf/types/descriptorpb
 ## explicit
 gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
-## explicit
 gopkg.in/yaml.v3
-# honnef.co/go/tools v0.2.0
-## explicit
