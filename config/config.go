@@ -1,40 +1,33 @@
 package config
 
-import (
-	"github.com/caarlos0/env"
-)
+import "github.com/caarlos0/env"
 
-const (
-	WakapiSummary = "/api/summary"
-)
+var appConfig AppConfig
 
-type GitConfig struct {
-	AccessToken string `env:"AccessToken"`
-	Branch      string `env:"Branch"`
-	Message     string `env:"Message"`
-	CommitName  string `env:"CommitName"`
-	CommitEmail string `env:"CommitEmail"`
-	UserName    string `env:"UserName"`
-	RepoName    string `env:"RepoName"`
-}
-
+//AppConfig struct contains WakaAPI needed env
 type AppConfig struct {
-	APIKey string `env:"API_KEY"`
-	APIURL string `env:"API_URL"`
-	Env    string `default:"dev" env:"ENVIRONMENT"`
+	Env string `default:"dev" env:"ENVIRONMENT"`
 }
 
+//IsDev return true if application is on dev stack
 func (c *AppConfig) IsDev() bool {
 	return IsDev(c.Env)
 }
 
+//IsDev return true if application is on dev stack
 func IsDev(env string) bool {
 	return env == "dev" || env == "development"
 }
 
-func Load() (cfg AppConfig, git GitConfig) {
+//InitAppConfig struct with env variables
+func initAppConfig() {
+	env.Parse(&appConfig)
+}
 
-	env.Parse(&cfg)
-	env.Parse(&git)
-	return
+//GetAppConfig return initialize config structure with variable env
+func GetAppConfig() AppConfig {
+	if (appConfig == AppConfig{}) {
+		initAppConfig()
+	}
+	return appConfig
 }

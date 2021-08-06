@@ -15,34 +15,31 @@ func TestIsDev(t *testing.T) {
 	assert.False(t, IsDev("anything else"))
 }
 
+func TestAppConfigIsDev(t *testing.T) {
+	c := AppConfig{
+		Env: "dev",
+	}
+	assert.True(t, c.IsDev())
+
+	c.Env = "development"
+	assert.True(t, c.IsDev())
+
+	c.Env = "prod"
+	assert.False(t, c.IsDev())
+
+	c.Env = "production"
+	assert.False(t, c.IsDev())
+
+	c.Env = "anything else"
+	assert.False(t, c.IsDev())
+}
+
 func TestLoad(t *testing.T) {
-	os.Setenv("API_URL", "http://localhost")
-	os.Setenv("API_KEY", "fdsg-sfdg-dsfg-sdfg")
-	os.Setenv("ENVIRONMENT", "dev")
+	_ = os.Setenv("ENVIRONMENT", "dev")
 
-	os.Setenv("AccessToken", "dfdjgfdjfgdjfddjgf")
-	os.Setenv("Branch", "main")
-	os.Setenv("Message", "Update images from wakapi-stats")
-	os.Setenv("CommitName", "LACAZE Thomas")
-	os.Setenv("CommitEmail", "contact@thomaslacaze.fr")
-	os.Setenv("UserName", "lacazethomas")
-	os.Setenv("RepoName", "testname")
-
-	appConfig, gitConfig := Load()
+	appConfig := GetAppConfig()
 
 	assert.Equal(t, appConfig, AppConfig{
-		APIKey: "fdsg-sfdg-dsfg-sdfg",
-		APIURL: "http://localhost",
-		Env:    "dev",
-	})
-
-	assert.Equal(t, gitConfig, GitConfig{
-		AccessToken: "dfdjgfdjfgdjfddjgf",
-		Branch:      "main",
-		Message:     "Update images from wakapi-stats",
-		CommitName:  "LACAZE Thomas",
-		CommitEmail: "contact@thomaslacaze.fr",
-		UserName:    "lacazethomas",
-		RepoName:    "testname",
+		Env: "dev",
 	})
 }

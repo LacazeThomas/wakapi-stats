@@ -2,17 +2,7 @@ version: '2.1'
 services:
 
  wakapistats:
-  image: thomaslacaze/wakapi-stats:1.0.0
+  image: thomaslacaze/wakapi-stats:latest
   container_name: wakapistats
-  restart: always
   environment: 
     - ENVIRONMENT=PRODUCTION
-    - API_URL=${API_URL}
-    - API_KEY=${API_KEY}
-    - AccessToken=${AccessToken}
-    - Branch=main
-    - Message=Update images from wakapi-stats
-    - CommitName=Thomas LACAZE
-    - CommitEmail=contact@thomaslacaze.fr
-    - UserName=lacazethomas
-    - RepoName=lacazethomas

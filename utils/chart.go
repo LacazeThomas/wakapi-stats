@@ -1,54 +1,68 @@
 package utils
 
 import (
-	"os"
+	"bytes"
 	"sort"
 
 	"github.com/pkg/errors"
 	"github.com/wcharczuk/go-chart"
+	"github.com/wcharczuk/go-chart/drawing"
 
 	"github.com/lacazethomas/wakapi-stats/models"
 )
 
-func CreateStatsDiagram(summaryItems []models.SummaryItems, imageName string) (err error) {
-	sort.Sort(models.ItemsSorter(summaryItems))
+//CreateStatsDiagram using SummaryItems and image name
+func CreateStatsDiagram(c []models.ColorSummaryItem) ([]byte, error) {
+	if len(c) == 0 {
+		return nil, errors.New("This item is empty")
+	}
+
+	sort.Sort(models.ItemsSorter(c))
 	var chartItems []chart.Value
 
 	maxLen := 7
-	if len(summaryItems) < maxLen {
-		maxLen = len(summaryItems)
+	if len(c) < maxLen {
+		maxLen = len(c)
 	}
 
 	for i := 0; i < maxLen; i++ {
-		val := chart.Value{Value: float64(summaryItems[i].Total), Label: summaryItems[i].Key, Style: chart.Style{
-			FontColor: chart.ColorWhite,
-		}}
-		chartItems = append(chartItems, val)
+		if c[i].Name != "unknown" {
 
+			var style = chart.Style{FontColor: chart.ColorWhite}
+
+			if c[i].Color != "" {
+				style = chart.Style{
+					FontColor: chart.ColorWhite,
+					FillColor: drawing.ColorFromHex(c[i].Color[1:]),
+				}
+			}
+
+			val := chart.Value{Value: float64(c[i].TotalSeconds), Label: c[i].Name, Style: style}
+			chartItems = append(chartItems, val)
+		}
 	}
 
-	return createPieFromChartValues(chartItems, imageName)
+	return createPieFromChartValues(chartItems)
 }
 
-func createPieFromChartValues(chartItems []chart.Value, imageName string) (err error) {
+func createPieFromChartValues(chartItems []chart.Value) ([]byte, error) {
 	chart.DefaultBackgroundColor = chart.ColorTransparent
 	chart.DefaultCanvasColor = chart.ColorTransparent
 
 	graph := chart.PieChart{
-		//Title:  titleName,
-		Width:  512,
-		Height: 512,
+		Width:  1024,
+		Height: 1024,
 		DPI:    float64(75),
 
 		Values: chartItems,
 	}
 
-	f, err := os.Create(imageName)
-	if err != nil {
-		return errors.Wrap(err, "error creating image from graph")
-	}
-	defer f.Close()
-	graph.Render(chart.PNG, f)
+	b := bytes.NewBuffer([]byte{})
 
-	return
+	err := graph.Render(chart.SVG, b)
+	if err != nil {
+		return nil, errors.Wrap(err, "error rendering image from graph")
+	}
+
+	return b.Bytes(), nil
 }

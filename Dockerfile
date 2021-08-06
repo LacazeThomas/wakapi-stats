@@ -6,17 +6,11 @@ WORKDIR $GOPATH/src/github.com/lacazethomas/wakapi-stats/
 RUN go build -o /go/bin/wakapi-stats
 
 ENV ENVIRONMENT prod
-ENV API_URL ''
-ENV API_KEY ''
-ENV AccessToken ""
-ENV Branch "main"
-ENV Message "Update images from wakapi-stats"
-ENV CommitName ""
-ENV CommitEmail ""
-ENV UserName ""
-ENV RepoName ""
 
 FROM alpine:3.13.1
+EXPOSE 8080
 COPY --from=builder /go/bin/wakapi-stats /bin/wakapi-stats
+COPY colors.json colors.json
+COPY favicon.ico favicon.ico
 
 ENTRYPOINT ["/bin/wakapi-stats"]

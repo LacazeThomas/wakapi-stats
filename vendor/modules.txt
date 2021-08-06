@@ -1,10 +1,30 @@
 # github.com/blend/go-sdk v1.20210731.3
 ## explicit
+# github.com/buger/jsonparser v1.1.1
+## explicit
+github.com/buger/jsonparser
 # github.com/caarlos0/env v3.5.0+incompatible
 ## explicit
 github.com/caarlos0/env
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
+# github.com/gin-contrib/sse v0.1.0
+github.com/gin-contrib/sse
+# github.com/gin-gonic/gin v1.6.3
+## explicit
+github.com/gin-gonic/gin
+github.com/gin-gonic/gin/binding
+github.com/gin-gonic/gin/internal/bytesconv
+github.com/gin-gonic/gin/internal/json
+github.com/gin-gonic/gin/render
+# github.com/go-playground/locales v0.13.0
+github.com/go-playground/locales
+github.com/go-playground/locales/currency
+# github.com/go-playground/universal-translator v0.17.0
+github.com/go-playground/universal-translator
+# github.com/go-playground/validator/v10 v10.4.1
+## explicit
+github.com/go-playground/validator/v10
 # github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
 ## explicit
 github.com/golang/freetype/raster
@@ -17,9 +37,20 @@ github.com/golang/protobuf/proto
 github.com/google/go-github/github
 # github.com/google/go-querystring v1.1.0
 ## explicit
-github.com/google/go-querystring/query
+github.com/json-iterator/go
 # github.com/kr/text v0.2.0
 ## explicit
+# github.com/leodido/go-urn v1.2.1
+## explicit
+github.com/leodido/go-urn
+# github.com/mattn/go-isatty v0.0.12
+github.com/mattn/go-isatty
+# github.com/mattn/goveralls v0.0.8
+## explicit
+# github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+github.com/modern-go/concurrent
+# github.com/modern-go/reflect2 v1.0.1
+github.com/modern-go/reflect2
 # github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
@@ -28,6 +59,13 @@ github.com/pmezard/go-difflib/difflib
 # github.com/stretchr/testify v1.7.0
 ## explicit
 github.com/stretchr/testify/assert
+# github.com/thinkerou/favicon v0.1.0
+## explicit
+github.com/thinkerou/favicon
+# github.com/ugorji/go v1.2.4
+## explicit
+# github.com/ugorji/go/codec v1.2.4
+github.com/ugorji/go/codec
 # github.com/wcharczuk/go-chart v2.0.1+incompatible
 ## explicit
 github.com/wcharczuk/go-chart
@@ -110,6 +148,7 @@ google.golang.org/protobuf/types/descriptorpb
 ## explicit
 # gopkg.in/yaml.v2 v2.4.0
 ## explicit
+gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 ## explicit
 gopkg.in/yaml.v3

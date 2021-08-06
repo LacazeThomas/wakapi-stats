@@ -4,14 +4,23 @@ go 1.15
 
 require (
 	github.com/blend/go-sdk v1.20210731.3 // indirect
+	github.com/buger/jsonparser v1.1.1
 	github.com/caarlos0/env v3.5.0+incompatible
+	github.com/gin-gonic/gin v1.7.3
+	github.com/go-playground/validator/v10 v10.8.0 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/kr/text v0.2.0 // indirect
+	github.com/leodido/go-urn v1.2.1 // indirect
+	github.com/mattn/go-isatty v0.0.13 // indirect
+	github.com/mattn/goveralls v0.0.8 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.7.0
+	github.com/thinkerou/favicon v0.1.0
+	github.com/ugorji/go v1.2.6 // indirect
 	github.com/wcharczuk/go-chart v2.0.1+incompatible
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.7.0 // indirect
