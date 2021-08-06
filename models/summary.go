@@ -40,3 +40,10 @@ type ItemsSorter []ColorSummaryItem
 func (a ItemsSorter) Len() int           { return len(a) }
 func (a ItemsSorter) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ItemsSorter) Less(i, j int) bool { return a[i].TotalSeconds > a[j].TotalSeconds }
+
+func TotalTimeSpent(a ItemsSorter) (y int) {
+	for i := 0; i < len(a); i++ {
+		y += a[i].TotalSeconds
+	}
+	return y
+}

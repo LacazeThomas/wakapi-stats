@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
@@ -18,6 +19,10 @@ func Summary(c *gin.Context) {
 	var result []byte
 
 	t := c.Param("type")
+
+	timeSpent, err := strconv.ParseBool(c.DefaultQuery("timeSpent", "false"))
+	checkError(c, err)
+
 	appURI := c.Query("url")
 
 	zap.S().Debugf("Receive  %+v %+v", t, appURI)
@@ -34,7 +39,7 @@ func Summary(c *gin.Context) {
 	colorSummaryItem, err := models.ColorSummaryItems(summaryItem, "colors.json")
 	checkError(c, err)
 
-	result, err = utils.CreateStatsDiagram(colorSummaryItem)
+	result, err = utils.CreateStatsDiagram(colorSummaryItem, timeSpent)
 	checkError(c, err)
 
 	zap.S().Debugf("Receive images %+v", result)

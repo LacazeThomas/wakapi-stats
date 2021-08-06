@@ -11,10 +11,13 @@ import (
 func TestCreateStatsDiagram(t *testing.T) {
 	colorSummaryItems := []models.ColorSummaryItem{{models.SummaryItem{TotalSeconds: 50, Name: "Go"}, "#112233"}, {models.SummaryItem{TotalSeconds: 60, Name: "John"}, ""}}
 
-	_, err := CreateStatsDiagram(colorSummaryItems)
+	_, err := CreateStatsDiagram(colorSummaryItems, false)
 	assert.ErrorIs(t, nil, err)
 
-	_, err = CreateStatsDiagram(nil)
+	_, err = CreateStatsDiagram(colorSummaryItems, true)
+	assert.ErrorIs(t, nil, err)
+
+	_, err = CreateStatsDiagram(nil, false)
 	assert.Error(t, err)
 	assert.Regexp(t, err.Error(), "This item is empty")
 }

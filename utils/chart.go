@@ -12,7 +12,7 @@ import (
 )
 
 //CreateStatsDiagram using SummaryItems and image name
-func CreateStatsDiagram(c []models.ColorSummaryItem) ([]byte, error) {
+func CreateStatsDiagram(c []models.ColorSummaryItem, timeSpent bool) ([]byte, error) {
 	if len(c) == 0 {
 		return nil, errors.New("This item is empty")
 	}
@@ -24,6 +24,8 @@ func CreateStatsDiagram(c []models.ColorSummaryItem) ([]byte, error) {
 	if len(c) < maxLen {
 		maxLen = len(c)
 	}
+
+	totalTimeSpent := models.TotalTimeSpent(c)
 
 	for i := 0; i < maxLen; i++ {
 		if c[i].Name != "unknown" {
@@ -37,7 +39,14 @@ func CreateStatsDiagram(c []models.ColorSummaryItem) ([]byte, error) {
 				}
 			}
 
-			val := chart.Value{Value: float64(c[i].TotalSeconds), Label: c[i].Name, Style: style}
+			label := c[i].Name
+			if timeSpent {
+				if totalTimeSpent/100*2 < c[i].TotalSeconds {
+					label = c[i].Name + " " + SecondToFormattedTime(c[i].TotalSeconds)
+				}
+			}
+
+			val := chart.Value{Value: float64(c[i].TotalSeconds), Label: label, Style: style}
 			chartItems = append(chartItems, val)
 		}
 	}

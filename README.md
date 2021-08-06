@@ -58,6 +58,8 @@ Generator images from Wakapi
 
 ## 🧐 Features
 
+- **✅ Display or not time spent**
+
 - **✅ 100 % free and open-source**
 
 - **✅ No need CI**
@@ -79,6 +81,13 @@ Please do not forget to put your wakapi endpoint into public
 ```
 http://localhost:8080/api/v1/editors?url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
 ```
+
+With real time spent
+
+```
+http://localhost:8080/api/v1/editors?timeSpent=true&url=https://stats-code.thomaslacaze.fr/api/v1/users/thomaslacaze/stats/30_days
+```
+
 
 ## ☁️ [Public instance](https://wakapi-stats.thomaslacaze.fr)
 ```

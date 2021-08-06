@@ -7,9 +7,15 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSortIntSlice(t *testing.T) {
+var c = []ColorSummaryItem{{SummaryItem{TotalSeconds: 50}, ""}, {SummaryItem{TotalSeconds: 60}, ""}}
 
-	c := []ColorSummaryItem{{SummaryItem{TotalSeconds: 50}, ""}, {SummaryItem{TotalSeconds: 60}, ""}}
+func TestSortIntSlice(t *testing.T) {
 	sort.Sort(ItemsSorter(c))
 	assert.True(t, sort.IsSorted(ItemsSorter(c)))
+}
+
+func TestTotalTimeSpent(t *testing.T) {
+	assert.Equal(t, 110, TotalTimeSpent(c))
+	c[0].TotalSeconds = 0
+	assert.Equal(t, 60, TotalTimeSpent(c))
 }
