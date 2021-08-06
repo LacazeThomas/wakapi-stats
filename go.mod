@@ -12,7 +12,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/mattn/go-isatty v0.0.13 // indirect
-	github.com/mattn/goveralls v0.0.8 // indirect
+	github.com/mattn/goveralls v0.0.9 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.7.0
 	github.com/thinkerou/favicon v0.1.0
