@@ -37,7 +37,6 @@ func Summary(c *gin.Context) {
 	result, err = utils.CreateStatsDiagram(colorSummaryItem)
 	checkError(c, err)
 
-	zap.S().Debugf("Receive images %+v", result)
 	c.Data(http.StatusOK, "image/svg+xml", result)
 }
 
