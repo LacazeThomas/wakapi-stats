@@ -5,8 +5,8 @@ import (
 	"sort"
 
 	"github.com/pkg/errors"
-	"github.com/wcharczuk/go-chart"
-	"github.com/wcharczuk/go-chart/drawing"
+	"github.com/wcharczuk/go-chart/v2"
+	"github.com/wcharczuk/go-chart/v2/drawing"
 	"go.uber.org/zap"
 
 	"github.com/lacazethomas/wakapi-stats/models"
