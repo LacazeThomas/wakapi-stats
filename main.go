@@ -16,6 +16,8 @@ func main() {
 	var logger *zap.Logger
 	var err error
 
+	gin.SetMode(gin.ReleaseMode)
+
 	appConfig := config.GetAppConfig()
 
 	// Set log level
