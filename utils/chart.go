@@ -5,8 +5,9 @@ import (
 	"sort"
 
 	"github.com/pkg/errors"
-	"github.com/wcharczuk/go-chart"
-	"github.com/wcharczuk/go-chart/drawing"
+	"github.com/wcharczuk/go-chart/v2"
+	"github.com/wcharczuk/go-chart/v2/drawing"
+	"go.uber.org/zap"
 
 	"github.com/lacazethomas/wakapi-stats/models"
 )
@@ -50,6 +51,8 @@ func CreateStatsDiagram(c []models.ColorSummaryItem, timeSpent bool) ([]byte, er
 			chartItems = append(chartItems, val)
 		}
 	}
+
+	zap.S().Debug("chartItems", zap.Any("chartItems", chartItems))
 
 	return createPieFromChartValues(chartItems)
 }
