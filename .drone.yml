@@ -17,7 +17,7 @@ steps:
     DEEPSOURCE_DSN:
       from_secret: deepsource_dsn
   commands:
-    - go install github.com/mattn/goveralls
+    - go install github.com/mattn/goveralls@latest
     - go test ./...  -v -covermode=count -coverprofile=coverage.out
     - $GOPATH/bin/goveralls -coverprofile=coverage.out -service=drone-ci -repotoken $${coveralls_token}
     - curl https://deepsource.io/cli | sh
